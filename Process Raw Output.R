@@ -103,8 +103,8 @@ JOL2.key = tolower(Large_vs_Small$Stimuli.Answer)
 JOL2.Response = tolower(Large_vs_Small$Response.Response)
 ID = Large_vs_Small$Username
 
-match1 = percent_match(JOL2.Response, key = JOL2.key, id = ID)
-score_recall(match1, set.cutoff = 0.75)
+match1 = percent_match.cr(JOL2.Response, key = JOL2.key, id = ID)
+score_recall.cr(match1, cutoff = 0.75)
 
 scored1 = read.csv("output.csv")
 
@@ -115,13 +115,13 @@ JOL3.key = tolower(Highlight$Stimuli.Answer)
 JOL3.Response = tolower(Highlight$Response.Response)
 ID = Highlight$Username
 
-match2 = percent_match(JOL3.Response, key = JOL3.key, id = ID)
-score_recall(match2, set.cutoff = 0.75)
+match2 = percent_match.cr(JOL3.Response, key = JOL3.key, id = ID)
+score_recall.cr(match2, cutoff = 0.75)
 
 scored2 = read.csv("output.csv")
 
 Highlight$Recall_Score = scored2$scored * 100
 
 ####Write combined raw output to data file####
-write.csv(Large_vs_Small, file = "Size.csv", row.names = F)
-write.csv(Highlight, file = "Highlight.csv", row.names = F)
+write.csv(Large_vs_Small, file = "Ex 1 Scored Output/Size.csv", row.names = F)
+write.csv(Highlight, file = "Ex 1 Scored Output/Highlight.csv", row.names = F)

@@ -9,6 +9,13 @@ length(unique(highlight$Username))
 colnames(size)[7] = "Direction"
 colnames(highlight)[7] = "Direction"
 
+##Remove punctuation/special characters from JOLs
+size$Response.JOL =  gsub("[[:punct:]]", "", size$Response.JOL)
+size$Response.JOL =  gsub("I", NA, size$Response.JOL)
+
+#Make Size jols numeric
+size$Response.JOL = as.numeric(size$Response.JOL)
+
 ##Get descriptives
 summary(size)
 summary(highlight)
