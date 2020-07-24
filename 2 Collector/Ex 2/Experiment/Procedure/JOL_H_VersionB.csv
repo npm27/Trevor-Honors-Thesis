@@ -1,0 +1,197 @@
+Item,Trial Type,Max Time,Min Time,Text,Procedure Notes,Shuffle
+0,Instruct,-,5,"In this section, you will be presented with a series of word pairs.",Initial_Instruct,Instruct1
+0,Instruct,-,5,"As you study, you will be asked to rate your ability to remember the second item in the pair if you were only shown the first at test. You will make these ratings using a 0 to 100 Scale.",,Instruct13
+0,Instruct,-,10,"For  example, if you are given the pair CAT - DOG, a rating of 0 indicates that you would not remember DOG at test, while a rating of 100 indicates full certainty that you would remember the word DOG at test.",,Instruct14
+0,Instruct,-,10,"When making your ratings, it is criticial that you use the full range of the scale. You will be disqualified for only giving ratings of 0 or 100! After making your rating, press Enter to advance to the next pair.",,Instruct15
+0,Instruct,User,-,You will now begin the study. Press Enter when you are ready to begin.,,Instruct16
+52,JOL,User,-,,Study/JOL,BUFFER
+53,JOL,User,-,,Study/JOL,BUFFER
+54,JOL_H,User,-,,Study/JOL,BUFFER
+55,JOL_H,User,-,,Study/JOL,BUFFER
+56,JOL_H,User,-,,Study/JOL,BUFFER
+57,JOL_H,User,-,,Study/JOL,Study Phase
+59,JOL_H,User,-,,Study/JOL,Study Phase
+59,JOL_H,User,-,,Study/JOL,Study Phase
+60,JOL_H,User,-,,Study/JOL,Study Phase
+61,JOL_H,User,-,,Study/JOL,Study Phase
+62,JOL_H,User,-,,Study/JOL,Study Phase
+63,JOL_H,User,-,,Study/JOL,Study Phase
+64,JOL_H,User,-,,Study/JOL,Study Phase
+65,JOL_H,User,-,,Study/JOL,Study Phase
+66,JOL_H,User,-,,Study/JOL,Study Phase
+67,JOL_H,User,-,,Study/JOL,Study Phase
+68,JOL_H,User,-,,Study/JOL,Study Phase
+69,JOL_H,User,-,,Study/JOL,Study Phase
+70,JOL_H,User,-,,Study/JOL,Study Phase
+71,JOL_H,User,-,,Study/JOL,Study Phase
+72,JOL_H,User,-,,Study/JOL,Study Phase
+73,JOL_H,User,-,,Study/JOL,Study Phase
+74,JOL_H,User,-,,Study/JOL,Study Phase
+75,JOL_H,User,-,,Study/JOL,Study Phase
+76,JOL_H,User,-,,Study/JOL,Study Phase
+77,JOL,User,-,,Study/JOL,Study Phase
+78,JOL,User,-,,Study/JOL,Study Phase
+79,JOL,User,-,,Study/JOL,Study Phase
+80,JOL,User,-,,Study/JOL,Study Phase
+81,JOL,User,-,,Study/JOL,Study Phase
+82,JOL,User,-,,Study/JOL,Study Phase
+23,JOL,User,-,,Study/JOL,Study Phase
+84,JOL,User,-,,Study/JOL,Study Phase
+85,JOL,User,-,,Study/JOL,Study Phase
+86,JOL,User,-,,Study/JOL,Study Phase
+87,JOL,User,-,,Study/JOL,Study Phase
+88,JOL,User,-,,Study/JOL,Study Phase
+89,JOL,User,-,,Study/JOL,Study Phase
+90,JOL,User,-,,Study/JOL,Study Phase
+91,JOL,User,-,,Study/JOL,Study Phase
+92,JOL,User,-,,Study/JOL,Study Phase
+93,JOL,User,-,,Study/JOL,Study Phase
+94,JOL,User,-,,Study/JOL,Study Phase
+95,JOL,User,-,,Study/JOL,Study Phase
+96,JOL,User,-,,Study/JOL,Study Phase
+97,JOL_H,User,-,,Study/JOL,BUFFER2
+98,JOL_H,User,-,,Study/JOL,BUFFER2
+99,JOL_H,User,-,,Study/JOL,BUFFER2
+100,JOL,User,-,,Study/JOL,BUFFER2
+101,JOL,User,-,,Study/JOL,BUFFER2
+0,Instruct,User,-,You have completed this section. Please press Enter.,Filler_Instruction,Instruct2
+0,FreeRecall,120,120,Please list the 50 US states in alphabetical order. The task will automatically advance to the next screen after two minutes.,,Filler1
+0,Instruct,-,10,"You will now be presented with the first word from each of the previously studied item pairs. Please type the missing word. If you do not know the word, you may guess or press Enter to skip forward to the next pair.",,Instruct3
+57,Test,User,-,,Recall,Recall1
+59,Test,User,-,,Recall,Recall1
+59,Test,User,-,,Recall,Recall1
+60,Test,User,-,,Recall,Recall1
+61,Test,User,-,,Recall,Recall1
+62,Test,User,-,,Recall,Recall1
+63,Test,User,-,,Recall,Recall1
+64,Test,User,-,,Recall,Recall1
+65,Test,User,-,,Recall,Recall1
+66,Test,User,-,,Recall,Recall1
+67,Test,User,-,,Recall,Recall1
+68,Test,User,-,,Recall,Recall1
+69,Test,User,-,,Recall,Recall1
+70,Test,User,-,,Recall,Recall1
+71,Test,User,-,,Recall,Recall1
+72,Test,User,-,,Recall,Recall1
+73,Test,User,-,,Recall,Recall1
+74,Test,User,-,,Recall,Recall1
+75,Test,User,-,,Recall,Recall1
+76,Test,User,-,,Recall,Recall1
+77,Test,User,-,,Recall,Recall1
+78,Test,User,-,,Recall,Recall1
+79,Test,User,-,,Recall,Recall1
+80,Test,User,-,,Recall,Recall1
+81,Test,User,-,,Recall,Recall1
+82,Test,User,-,,Recall,Recall1
+23,Test,User,-,,Recall,Recall1
+84,Test,User,-,,Recall,Recall1
+85,Test,User,-,,Recall,Recall1
+86,Test,User,-,,Recall,Recall1
+87,Test,User,-,,Recall,Recall1
+88,Test,User,-,,Recall,Recall1
+89,Test,User,-,,Recall,Recall1
+90,Test,User,-,,Recall,Recall1
+91,Test,User,-,,Recall,Recall1
+92,Test,User,-,,Recall,Recall1
+93,Test,User,-,,Recall,Recall1
+94,Test,User,-,,Recall,Recall1
+95,Test,User,-,,Recall,Recall1
+96,Test,User,-,,Recall,Recall1
+0,Instruct,-,10,"You will now be presented with a new set of word pairs. Please study each pair. Remember that your memory will be tested! When finished, press Enter to move to the next pair.",Initial_Instruct,Instruct4
+0,Instruct,,10,You will again be asked to rate your ability to remember these items using a 0 to 100 scale. Remember to use the full range of the scale!,,Instruct10
+0,Instruct,User,-,Press Enter when you are readty to begin,,Instruct11
+2,JOL,User,-,,Study/JOL,BUFFER3
+3,JOL,User,-,,Study/JOL,BUFFER3
+4,JOL_H,User,-,,Study/JOL,BUFFER3
+5,JOL_H,User,-,,Study/JOL,BUFFER3
+6,JOL_H,User,-,,Study/JOL,BUFFER3
+7,JOL_H,User,-,,Study/JOL,Study Phase2
+8,JOL_H,User,-,,Study/JOL,Study Phase2
+9,JOL_H,User,-,,Study/JOL,Study Phase2
+10,JOL_H,User,-,,Study/JOL,Study Phase2
+11,JOL_H,User,-,,Study/JOL,Study Phase2
+12,JOL_H,User,-,,Study/JOL,Study Phase2
+13,JOL_H,User,-,,Study/JOL,Study Phase2
+14,JOL_H,User,-,,Study/JOL,Study Phase2
+15,JOL_H,User,-,,Study/JOL,Study Phase2
+16,JOL_H,User,-,,Study/JOL,Study Phase2
+17,JOL_H,User,-,,Study/JOL,Study Phase2
+18,JOL_H,User,-,,Study/JOL,Study Phase2
+19,JOL_H,User,-,,Study/JOL,Study Phase2
+20,JOL_H,User,-,,Study/JOL,Study Phase2
+21,JOL_H,User,-,,Study/JOL,Study Phase2
+22,JOL_H,User,-,,Study/JOL,Study Phase2
+23,JOL_H,User,-,,Study/JOL,Study Phase2
+24,JOL_H,User,-,,Study/JOL,Study Phase2
+25,JOL_H,User,-,,Study/JOL,Study Phase2
+26,JOL_H,User,-,,Study/JOL,Study Phase2
+27,JOL,User,-,,Study/JOL,Study Phase2
+28,JOL,User,-,,Study/JOL,Study Phase2
+29,JOL,User,-,,Study/JOL,Study Phase2
+30,JOL,User,-,,Study/JOL,Study Phase2
+31,JOL,User,-,,Study/JOL,Study Phase2
+32,JOL,User,-,,Study/JOL,Study Phase2
+33,JOL,User,-,,Study/JOL,Study Phase2
+34,JOL,User,-,,Study/JOL,Study Phase2
+35,JOL,User,-,,Study/JOL,Study Phase2
+36,JOL,User,-,,Study/JOL,Study Phase2
+37,JOL,User,-,,Study/JOL,Study Phase2
+38,JOL,User,-,,Study/JOL,Study Phase2
+39,JOL,User,-,,Study/JOL,Study Phase2
+40,JOL,User,-,,Study/JOL,Study Phase2
+41,JOL,User,-,,Study/JOL,Study Phase2
+42,JOL,User,-,,Study/JOL,Study Phase2
+43,JOL,User,-,,Study/JOL,Study Phase2
+44,JOL,User,-,,Study/JOL,Study Phase2
+45,JOL,User,-,,Study/JOL,Study Phase2
+46,JOL,User,-,,Study/JOL,Study Phase2
+47,JOL_H,User,-,,Study/JOL,BUFFER4
+48,JOL_H,User,-,,Study/JOL,BUFFER4
+49,JOL_H,User,-,,Study/JOL,BUFFER4
+50,JOL,User,-,,Study/JOL,BUFFER4
+51,JOL,User,-,,Study/JOL,BUFFER4
+0,Instruct,User,-,You have completed this section. Please press Enter.,Filler_Instruction,Instruct5
+0,FreeRecall,120,120,Please list the 50 US states in reverse alphabetical order (z - a). The task will automatically advance to the next screen after two minutes.,,Filler2
+0,Instruct,-,10,"You will now be presented with the first word from each of the previously studied item pairs. Please type the missing word. If you do not know the word, you may guess or press Enter to skip forward to the next pair.",,Instruct6
+7,Test,User,-,,Recall,Recall2
+8,Test,User,-,,Recall,Recall2
+9,Test,User,-,,Recall,Recall2
+10,Test,User,-,,Recall,Recall2
+11,Test,User,-,,Recall,Recall2
+12,Test,User,-,,Recall,Recall2
+13,Test,User,-,,Recall,Recall2
+14,Test,User,-,,Recall,Recall2
+15,Test,User,-,,Recall,Recall2
+16,Test,User,-,,Recall,Recall2
+17,Test,User,-,,Recall,Recall2
+18,Test,User,-,,Recall,Recall2
+19,Test,User,-,,Recall,Recall2
+20,Test,User,-,,Recall,Recall2
+21,Test,User,-,,Recall,Recall2
+22,Test,User,-,,Recall,Recall2
+23,Test,User,-,,Recall,Recall2
+24,Test,User,-,,Recall,Recall2
+25,Test,User,-,,Recall,Recall2
+26,Test,User,-,,Recall,Recall2
+27,Test,User,-,,Recall,Recall2
+28,Test,User,-,,Recall,Recall2
+29,Test,User,-,,Recall,Recall2
+30,Test,User,-,,Recall,Recall2
+31,Test,User,-,,Recall,Recall2
+32,Test,User,-,,Recall,Recall2
+33,Test,User,-,,Recall,Recall2
+34,Test,User,-,,Recall,Recall2
+35,Test,User,-,,Recall,Recall2
+36,Test,User,-,,Recall,Recall2
+37,Test,User,-,,Recall,Recall2
+38,Test,User,-,,Recall,Recall2
+39,Test,User,-,,Recall,Recall2
+40,Test,User,-,,Recall,Recall2
+41,Test,User,-,,Recall,Recall2
+42,Test,User,-,,Recall,Recall2
+43,Test,User,-,,Recall,Recall2
+44,Test,User,-,,Recall,Recall2
+45,Test,User,-,,Recall,Recall2
+46,Test,User,-,,Recall,Recall2
+0,Instruct,User,-,You have completed this section. Please press Enter.,,Instruct7
+0,Instruct,User,-,The following screen will ask you a few questions abour your experience today. You must complete these questions to receive credit.,,Instruct8

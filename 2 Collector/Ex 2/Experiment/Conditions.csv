@@ -1,0 +1,5 @@
+Number,Stimuli,Procedure,Condition Description,Condition Notes
+1,Pure_Unrelated.csv,JOL_S_VersionA.csv,Size U A,Size U A
+2,Pure_Unrelated.csv,JOL_S_VersionB.csv,Size U B,Size U B
+3,Pure_Unrelated.csv,JOL_H_VersionA.csv,Highlight U A,Highlight U A
+4,Pure_Unrelated.csv,JOL_H_VersionB.csv,Highlight U B,Highlight U B
