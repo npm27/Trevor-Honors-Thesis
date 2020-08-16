@@ -1,8 +1,8 @@
 Number,Stimuli,Procedure,Condition Description,Condition Notes
-1,versionA_stim.csv,JOL_SIZE_VersionA.csv,#Large vs small A,Large vs small
-2,versionA_stim.csv,JOL_SIZE_VersionB.csv,#Large vs small B,Large vs small
-3,versionC_stim.csv,JOL_SIZE_VersionC.csv,#Large vs small C,Large vs small
-4,versionC_stim.csv,JOL_SIZE_VersionD.csv,#Large vs small D,Large vs small
+1,versionA_stim.csv,JOL_SIZE_VersionA.csv,Large vs small A,Large vs small
+2,versionA_stim.csv,JOL_SIZE_VersionB.csv,Large vs small B,Large vs small
+3,versionC_stim.csv,JOL_SIZE_VersionC.csv,Large vs small C,Large vs small
+4,versionC_stim.csv,JOL_SIZE_VersionD.csv,Large vs small D,Large vs small
 5,versionA_stim.csv,JOL_H_VersionA.csv,Highlight vs normal A,Highlight vs normal
 6,versionA_stim.csv,JOL_H_VersionB.csv,Highlight vs normal B,Highlight vs normal
 7,versionC_stim.csv,JOL_H_VersionC.csv,Highlight vs normal C,Highlight vs normal

@@ -3,6 +3,8 @@ size = read.csv("Ex 1 Scored Output/Size.csv")
 highlight = read.csv("Ex 1 Scored Output/Highlight.csv")
 control = read.csv("JOL3.csv")
 
+library(ez)
+
 ##Get sample size
 length(unique(size$Username))
 length(unique(highlight$Username))
