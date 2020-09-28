@@ -1,0 +1,141 @@
+Cue,Answer,Shuffle,Stimuli Notes,Value
+TREES,GREEN,BUFFER1,Buffer,1
+BASEBALL,CATCHER,BUFFER1,Buffer,2
+PEANUT,BUTTER,BUFFER1,Buffer,3
+Images/SCARE-HIDE.png,,BUFFER5,Buffer,4
+Images/SPACE-JAM.png,,BUFFER5,Buffer,5
+JUSTICE                  ,MAROON                   ,Study1,U,6
+STRETCH,CLOTH,Study1,U,7
+GIVE,STEAK,Study1,U,8
+MAZE,ELECTION,Study1,U,9
+VEHICLE,CHARM,Study1,U,10
+MEAT,OBTAIN,Study1,U,11
+CRACKLE,ABLE,Study1,U,12
+SHELL,SHAKE,Study1,U,13
+LISTEN,FICTION,Study1,U,14
+KEYS,JOKE,Study1,U,15
+CAKE,CLOTHES,Study1,U,16
+NAME                     ,HATE                     ,Study1,U,17
+FUZZY,BANG,Study1,U,18
+MOAT                     ,CLEAR                    ,Study1,U,19
+LEASE                    ,TOIL                     ,Study1,U,20
+LOAN                     ,SIGN                     ,Study1,U,21
+BOTH                     ,OUNCE                    ,Study1,U,22
+TEMPERATURE,MORNING,Study1,U,23
+MIRROR,CHILDREN,Study1,U,24
+MAIN                     ,SCAR                     ,Study1,U,25
+Images/BAT-SHAKY.png,,Study3,U,66
+Images/PARCEL-THROAT.png,,Study3,U,67
+Images/STRESS-YAM.png,,Study3,U,68
+Images/RESIST-GLUE.png,,Study3,U,69
+Images/FUTURE-SINCERE.png,,Study3,U,70
+Images/DEGREE-CHAIR.png,,Study3,U,71
+Images/TAX-OWL.png,,Study3,U,72
+Images/THICK-CONTEST.png,,Study3,U,73
+Images/PET-MOON.png,,Study3,U,74
+Images/BROAD-INFECT.png,,Study3,U,75
+Images/INFLATE-DISGUST.png,,Study3,U,76
+Images/DIZZY-SWEATER.png,,Study3,U,77
+Images/NUMBER-HARD.png,,Study3,U,78
+Images/CRAYON-RATE.png,,Study3,U,79
+Images/WARN-SEA.png,,Study3,U,80
+Images/DIFFICULT-POOR.png,,Study3,U,81
+Images/ROSE-NEGLECT.png,,Study3,U,82
+Images/RIPE-VERIFY.png,,Study3,U,83
+Images/DONKEY-LUSH.png,,Study3,U,84
+Images/GRIND-STAND.png,,Study3,U,85
+GEESE,GOOSE,BUFFER2,Buffer,86
+SHERRIF,POLICE,BUFFER2,Buffer,87
+Images/MALT-CHOCOLATE.png,,BUFFER6,Buffer,88
+Images/MOON-SPACE.png,,BUFFER6,Buffer,89
+Images/THING-STUFF.png,,BUFFER6,Buffer,90
+CARROT,POTATO,BUFFER3,Buffer,91
+NOODLE,STRING,BUFFER3,Buffer,92
+Images/SHRIMP-FISH.png,,BUFFER7,Buffer,93
+Images/ICE-FROZEN.png,,BUFFER7,Buffer,94
+CAMP,ADVENTURE,BUFFER3,Buffer,95
+CLUTTER                  ,PUSHER                   ,Study2,U,96
+SACKING                  ,DIETARY                  ,Study2,U,97
+HUNGRY,PARK,Study2,U,98
+WOMAN,LIFT,Study2,U,99
+BELT,SOON,Study2,U,100
+FLOOR,DISCOVER,Study2,U,101
+Business,Death,Study2,U,102
+SIGHT,DEBATE,Study2,U,103
+BRONZE                   ,ARTERY                   ,Study2,U,104
+HAND,FIX,Study2,U,105
+POSITION,MACHINE,Study2,U,106
+CAR,HAPPY,Study2,U,107
+TUCK                     ,ALLOW                    ,Study2,U,108
+LION,ART,Study2,U,109
+ACCIDENT,STRONG,Study2,U,110
+RIDDLE,SUGAR,Study2,U,111
+ADD,VALLEY,Study2,U,112
+WOULD                    ,CASH                     ,Study2,U,113
+SICK                     ,HIDE                     ,Study2,U,114
+VASE                     ,KING                     ,Study2,U,115
+Images/NULL-COUGH.png,,Study4,U,156
+Images/SMOOTH-OMIT.png,,Study4,U,157
+Images/READY-CORN.png,,Study4,U,158
+Images/STOMACH-TOWN.png,,Study4,U,159
+Images/LAKE-OPINION.png,,Study4,U,160
+Images/FLOAT-HARMONY.png,,Study4,U,161
+Images/DETECT-FREE.png,,Study4,U,162
+Images/PUT-ROLL.png,,Study4,U,163
+Images/SLIM-KNOW.png,,Study4,U,164
+Images/WASTE-SEDATE.png,,Study4,U,165
+Images/ROAD-SCENT.png,,Study4,U,166
+Images/SYSTEM-LICK.png,,Study4,U,167
+Images/ZOO-THUMB.png,,Study4,U,168
+Images/DESIRE-NOISE.png,,Study4,U,169
+Images/GUARD-WHEEL.png,,Study4,U,170
+Images/PUFF-NUMBER.png,,Study4,U,171
+Images/JELLY-NAUGHTY.png,,Study4,U,172
+Images/MUTE-WAVE.png,,Study4,U,173
+Images/SPELL-BONE.png,,Study4,U,174
+Images/SWING-FOG.png,,Study4,U,175
+DAYS,WEEKS,BUFFER4,Buffer,176
+MONTH,YEAR,BUFFER4,Buffer,177
+Images/TOOL-SHED.png,,BUFFER9,Buffer,178
+Images/SPRING-MARCH.png,,BUFFER9,Buffer,179
+Images/OCTOBER-SPOOKY.png,,BUFFER9,Buffer,180
+BAT,SHAKY,Test1,Test,181
+PARCEL,THROAT,Test1,Test,182
+STRESS,YAM,Test1,Test,183
+RESIST,GLUE,Test1,Test,184
+FUTURE,SINCERE,Test1,Test,185
+DEGREE,CHAIR,Test1,Test,186
+TAX,OWL,Test1,Test,187
+THICK,CONTEST,Test1,Test,188
+PET,MOON,Test1,Test,189
+BROAD,INFECT,Test1,Test,190
+INFLATE,DISGUST,Test1,Test,191
+DIZZY,SWEATER,Test1,Test,192
+NUMBER,HARD,Test1,Test,193
+CRAYON,RATE,Test1,Test,194
+WARN,SEA,Test1,Test,195
+DIFFICULT,POOR,Test1,Test,196
+ROSE,NEGLECT,Test1,Test,197
+RIPE,VERIFY,Test1,Test,198
+DONKEY,LUSH,Test1,Test,199
+GRIND,STAND,Test1,Test,200
+NULL,COUGH,Test2,Test,201
+SMOOTH,OMIT,Test2,Test,202
+READY,CORN,Test2,Test,203
+STOMACH,TOWN,Test2,Test,204
+LAKE,OPINION,Test2,Test,205
+FLOAT,HARMONY,Test2,Test,206
+DETECT,FREE,Test2,Test,207
+PUT,ROLL,Test2,Test,208
+SLIM,KNOW,Test2,Test,209
+WASTE,SEDATE,Test2,Test,210
+ROAD,SCENT,Test2,Test,211
+SYSTEM,LICK,Test2,Test,212
+ZOO,THUMB,Test2,Test,213
+DESIRE,NOISE,Test2,Test,214
+GUARD,WHEEL,Test2,Test,215
+PUFF,NUMBER,Test2,Test,216
+JELLY,NAUGHTY,Test2,Test,217
+MUTE,WAVE,Test2,Test,218
+SPELL,BONE,Test2,Test,219
+SWING,FOG,Test2,Test,220
