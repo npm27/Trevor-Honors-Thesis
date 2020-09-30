@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-dat_overall = pd.read_csv("highlight data.csv")
+dat_overall = pd.read_csv("size data.csv")
 
-dat = dat_overall[dat_overall['Condition'] == "No-Highlight"]
+dat = dat_overall[dat_overall['Group'] == "Small"]
 
 dat['diff'] = dat['Upper'].sub(dat['Lower'])
 dat['diff2'] = dat['diff'].div(2)
@@ -89,11 +89,11 @@ ax4.errorbar(x4, y4, yerr=(datU['diff2']), fmt='none', c= 'k', capsize=5)
 
 ##save figure
 fig
-fig.savefig('Ex1_No_Highlight.png')
+fig.savefig('Ex1_Small.png')
 
 ##Now do the highlight plot
 
-dat = dat_overall[dat_overall['Condition'] == "Highlight"]
+dat = dat_overall[dat_overall['Group'] == "Large"]
 
 dat['diff'] = dat['Upper'].sub(dat['Lower'])
 dat['diff2'] = dat['diff'].div(2)
@@ -178,4 +178,4 @@ ax4.errorbar(x4, y4, yerr=(datU['diff2']), fmt='none', c= 'k', capsize=5)
 
 ##save figure
 fig
-fig.savefig('Ex1_Highlight.png')
+fig.savefig('Ex1_Large.png')
