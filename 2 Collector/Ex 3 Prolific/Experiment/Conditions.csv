@@ -1,0 +1,5 @@
+Number,Stimuli,Procedure,Condition Description,Condition Notes
+1,Pure_Unrelated.csv,SF_VersionA.csv,Sans F A,Sans F A
+2,Pure_Unrelated.csv,SF_VersionB.csv,Sans F B,Sans F B
+3,Pure_Unrelated.csv,Control_VersionA.csv,Control A,Control A
+4,Pure_Unrelated.csv,Control_VersionB.csv,Control B,Control B

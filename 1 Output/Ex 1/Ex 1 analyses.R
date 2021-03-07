@@ -5,6 +5,7 @@ control = read.csv("JOL3.csv")
 
 library(ez)
 library(data.table)
+library(reshape)
 
 ##Get sample size
 length(unique(size$Username))
@@ -109,13 +110,13 @@ highlight.no.jol2 = cast(highlight.no.jol, Username ~ Direction, mean, na.rm = T
 highlight.no.recall2 = cast(highlight.no.recall, Username ~ Direction, mean, na.rm = T)
 
 ####Write everything to csv####
-write.csv(control_jol2, file = "EX 1 Cleaned/Control_JOL.csv", row.names = F)
-write.csv(control_recall2, file = "EX 1 Cleaned/Control_Recall.csv", row.names = F)
-write.csv(highlight.no.jol2, file = "EX 1 Cleaned/NO Highlight JOL.csv", row.names = F)
-write.csv(highlight.yes.jol2, file = "EX 1 Cleaned/Yes Highlight JOL.csv", row.names = F)
-write.csv(highlight.no.recall2, file = "EX 1 Cleaned/NO HIGHLIGHT Recall.csv", row.names = F)
-write.csv(highlight.yes.recall2, file = "EX 1 Cleaned/YES HIGHLIGHT RECALL.csv", row.names = F)
-write.csv(size.large.jol2, file = "EX 1 Cleaned/Large JOL.csv", row.names = F)
-write.csv(size.large.recall2, file = "EX 1 Cleaned/Large recall.csv", row.names = F)
-write.csv(size.small.jol2, file = "EX 1 Cleaned/Small JOL.csv", row.names = F)
-write.csv(size.small.recall2, file = "Ex 1 Cleaned/Small Recall.csv", row.names = F)
+#write.csv(control_jol2, file = "EX 1 Cleaned/Control_JOL.csv", row.names = F)
+#write.csv(control_recall2, file = "EX 1 Cleaned/Control_Recall.csv", row.names = F)
+#write.csv(highlight.no.jol2, file = "EX 1 Cleaned/NO Highlight JOL.csv", row.names = F)
+#write.csv(highlight.yes.jol2, file = "EX 1 Cleaned/Yes Highlight JOL.csv", row.names = F)
+#write.csv(highlight.no.recall2, file = "EX 1 Cleaned/NO HIGHLIGHT Recall.csv", row.names = F)
+#write.csv(highlight.yes.recall2, file = "EX 1 Cleaned/YES HIGHLIGHT RECALL.csv", row.names = F)
+#write.csv(size.large.jol2, file = "EX 1 Cleaned/Large JOL.csv", row.names = F)
+#write.csv(size.large.recall2, file = "EX 1 Cleaned/Large recall.csv", row.names = F)
+#write.csv(size.small.jol2, file = "EX 1 Cleaned/Small JOL.csv", row.names = F)
+#write.csv(size.small.recall2, file = "Ex 1 Cleaned/Small Recall.csv", row.names = F)
