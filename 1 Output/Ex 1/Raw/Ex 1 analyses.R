@@ -6,6 +6,7 @@ control = read.csv("JOL3.csv")
 library(ez)
 library(data.table)
 library(reshape)
+library(Hmisc)
 
 ##Get sample size
 length(unique(size$Username))
@@ -120,3 +121,486 @@ highlight.no.recall2 = cast(highlight.no.recall, Username ~ Direction, mean, na.
 #write.csv(size.large.recall2, file = "EX 1 Cleaned/Large recall.csv", row.names = F)
 #write.csv(size.small.jol2, file = "EX 1 Cleaned/Small JOL.csv", row.names = F)
 #write.csv(size.small.recall2, file = "Ex 1 Cleaned/Small Recall.csv", row.names = F)
+
+##Do gammas as a function of Encoding group and pair direction.
+
+##Okay, I need 5 sets of gammas, with mean gammas for each pair type. So, 20 total (5 perceptual types * 4 pair directions)
+
+control = na.omit(control)
+size.large = na.omit(size.large)
+size.small = na.omit(size.small)
+highlight.yes = na.omit(highlight.yes)
+highlight.no = na.omit(highlight.no)
+
+####Control Gammas####
+Control_F = subset(control, control$Direction == "F")
+Control_B = subset(control, control$Direction == "B")
+control_S = subset(control, control$Direction == "S")
+control_U = subset(control, control$Direction == "U")
+
+#Use loops to get each participant's mean gamma between JOLs and Recall
+#Forward
+empty = data.frame()
+
+for (i in unique(Control_F$Username)){
+  
+  temp = subset(Control_F, Control_F$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_Control_F = empty
+
+#Backward
+empty = data.frame()
+
+for (i in unique(Control_B$Username)){
+  
+  temp = subset(Control_B, Control_B$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_Control_B = empty
+
+#Symmetrical
+empty = data.frame()
+
+for (i in unique(control_S$Username)){
+  
+  temp = subset(control_S, control_S$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_Control_S = empty
+
+#Unrelated
+empty = data.frame()
+
+for (i in unique(control_U$Username)){
+  
+  temp = subset(control_U, control_U$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_Control_U = empty
+
+##Okay, stick them all together!
+Control_GAMMAS = cbind(Gammas_Control_F, Gammas_Control_B, Gammas_Control_S, Gammas_Control_U)
+
+#Drop duplicate columns and rename
+Control_GAMMAS = Control_GAMMAS[ , -c(3,5,7)]
+colnames(Control_GAMMAS)[1:5] = c("Sub", "F", "B", "S", "U")
+
+####Large font Gammas####
+size.large_F = subset(size.large, size.large$Direction == "F")
+size.large_B = subset(size.large, size.large$Direction == "B")
+size.large_S = subset(size.large, size.large$Direction == "S")
+size.large_U = subset(size.large, size.large$Direction == "U")
+
+#Use loops to get each participant's mean gamma between JOLs and Recall
+#Forward
+empty = data.frame()
+
+for (i in unique(size.large_F$Username)){
+  
+  temp = subset(size.large_F, size.large_F$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.large_F = empty
+
+#Backward
+empty = data.frame()
+
+for (i in unique(size.large_B$Username)){
+  
+  temp = subset(size.large_B, size.large_B$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.large_B = empty
+
+#Symmetrical
+empty = data.frame()
+
+for (i in unique(size.large_S$Username)){
+  
+  temp = subset(size.large_S, size.large_S$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.large_S = empty
+
+#Unrelated
+empty = data.frame()
+
+for (i in unique(size.large_U$Username)){
+  
+  temp = subset(size.large_U, size.large_U$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.large_U = empty
+
+##Okay, stick them all together!
+size.large_GAMMAS = cbind(Gammas_size.large_F, Gammas_size.large_B, Gammas_size.large_S, Gammas_size.large_U)
+
+#Drop duplicate columns and rename
+size.large_GAMMAS = size.large_GAMMAS[ , -c(3,5,7)]
+colnames(size.large_GAMMAS)[1:5] = c("Sub", "F", "B", "S", "U")
+
+####Small Font Gammas####
+size.small_F = subset(size.small, size.small$Direction == "F")
+size.small_B = subset(size.small, size.small$Direction == "B")
+size.small_S = subset(size.small, size.small$Direction == "S")
+size.small_U = subset(size.small, size.small$Direction == "U")
+
+#Use loops to get each participant's mean gamma between JOLs and Recall
+#Forward
+empty = data.frame()
+
+for (i in unique(size.small_F$Username)){
+  
+  temp = subset(size.small_F, size.small_F$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.small_F = empty
+
+#Backward
+empty = data.frame()
+
+for (i in unique(size.small_B$Username)){
+  
+  temp = subset(size.small_B, size.small_B$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.small_B = empty
+
+#Symmetrical
+empty = data.frame()
+
+for (i in unique(size.small_S$Username)){
+  
+  temp = subset(size.small_S, size.small_S$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.small_S = empty
+
+#Unrelated
+empty = data.frame()
+
+for (i in unique(size.small_U$Username)){
+  
+  temp = subset(size.small_U, size.small_U$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_size.small_U = empty
+
+##Okay, stick them all together!
+size.small_GAMMAS = cbind(Gammas_size.small_F, Gammas_size.small_B, Gammas_size.small_S, Gammas_size.small_U)
+
+#Drop duplicate columns and rename
+size.small_GAMMAS = size.small_GAMMAS[ , -c(3,5,7)]
+colnames(size.small_GAMMAS)[1:5] = c("Sub", "F", "B", "S", "U")
+
+###Highlight Gammas####
+highlight.yes_F = subset(highlight.yes, highlight.yes$Direction == "F")
+highlight.yes_B = subset(highlight.yes, highlight.yes$Direction == "B")
+highlight.yes_S = subset(highlight.yes, highlight.yes$Direction == "S")
+highlight.yes_U = subset(highlight.yes, highlight.yes$Direction == "U")
+
+#Use loops to get each participant's mean gamma between JOLs and Recall
+#Forward
+empty = data.frame()
+
+for (i in unique(highlight.yes_F$Username)){
+  
+  temp = subset(highlight.yes_F, highlight.yes_F$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.yes_F = empty
+
+#Backward
+empty = data.frame()
+
+for (i in unique(highlight.yes_B$Username)){
+  
+  temp = subset(highlight.yes_B, highlight.yes_B$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.yes_B = empty
+
+#Symmetrical
+empty = data.frame()
+
+for (i in unique(highlight.yes_S$Username)){
+  
+  temp = subset(highlight.yes_S, highlight.yes_S$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.yes_S = empty
+
+#Unrelated
+empty = data.frame()
+
+for (i in unique(highlight.yes_U$Username)){
+  
+  temp = subset(highlight.yes_U, highlight.yes_U$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.yes_U = empty
+
+##Okay, stick them all together!
+highlight.yes_GAMMAS = cbind(Gammas_highlight.yes_F, Gammas_highlight.yes_B, Gammas_highlight.yes_S, Gammas_highlight.yes_U)
+
+#Drop duplicate columns and rename
+highlight.yes_GAMMAS = highlight.yes_GAMMAS[ , -c(3,5,7)]
+colnames(highlight.yes_GAMMAS)[1:5] = c("Sub", "F", "B", "S", "U")
+
+####NO Highlight gammas####
+highlight.no_F = subset(highlight.no, highlight.no$Direction == "F")
+highlight.no_B = subset(highlight.no, highlight.no$Direction == "B")
+highlight.no_S = subset(highlight.no, highlight.no$Direction == "S")
+highlight.no_U = subset(highlight.no, highlight.no$Direction == "U")
+
+#Use loops to get each participant's mean gamma between JOLs and Recall
+#Forward
+empty = data.frame()
+
+for (i in unique(highlight.no_F$Username)){
+  
+  temp = subset(highlight.no_F, highlight.no_F$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.no_F = empty
+
+#Backward
+empty = data.frame()
+
+for (i in unique(highlight.no_B$Username)){
+  
+  temp = subset(highlight.no_B, highlight.no_B$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.no_B = empty
+
+#Symmetrical
+empty = data.frame()
+
+for (i in unique(highlight.no_S$Username)){
+  
+  temp = subset(highlight.no_S, highlight.no_S$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.no_S = empty
+
+#Unrelated
+empty = data.frame()
+
+for (i in unique(highlight.no_U$Username)){
+  
+  temp = subset(highlight.no_U, highlight.no_U$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight.no_U = empty
+
+##Okay, stick them all together!
+highlight.no_GAMMAS = cbind(Gammas_highlight.no_F, Gammas_highlight.no_B, Gammas_highlight.no_S, Gammas_highlight.no_U)
+
+#Drop duplicate columns and rename
+highlight.no_GAMMAS = highlight.no_GAMMAS[ , -c(3,5,7)]
+colnames(highlight.no_GAMMAS)[1:5] = c("Sub", "F", "B", "S", "U")
+
+####Get Mean gammas and CIs for TABLE####
+##control
+apply(Control_GAMMAS[ , -1], 2, mean, na.rm = T)
+(apply(Control_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(Control_GAMMAS))) * 1.96
+
+##Large vs Small
+#Large
+apply(size.large_GAMMAS[ , -1], 2, mean, na.rm = T)
+(apply(size.large_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(size.large_GAMMAS))) * 1.96
+
+#Small
+apply(size.small_GAMMAS[ , -1], 2, mean, na.rm = T)
+(apply(size.small_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(size.small_GAMMAS))) * 1.96
+
+##Highlight vs no highlight
+#Yes highlight
+apply(highlight.yes_GAMMAS[ , -1], 2, mean, na.rm = T)
+(apply(highlight.yes_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(highlight.yes_GAMMAS))) * 1.96
+
+#No highlight
+apply(highlight.no_GAMMAS[ , -1], 2, mean, na.rm = T)
+(apply(highlight.no_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(highlight.no_GAMMAS))) * 1.96

@@ -8,6 +8,7 @@ control = control[ , -15]
 ##Load libraries
 library(data.table)
 library(ez)
+library(Hmisc)
 
 ##Get sample size
 length(unique(size$Username)) #40
@@ -172,3 +173,214 @@ highlight.no2 = cast(highlight.no, Username ~ Task, mean, na.rm = T)
 #write.csv(size.large2, file = "size large.csv", row.names = F)
 #write.csv(highlight.yes2, file = "highlight yes.csv", row.names = F)
 #write.csv(highlight.no2, file = "highlight no.csv", row.names = F)
+
+####GAMMAS!####
+##Need to cut out the outliers omitted in the SPSS analyses
+
+#control
+summary(control2)
+
+control_final = na.omit(control2)
+
+control_final = subset(control_final,
+                       control_final$Username != "5ee64cd142c24a0008de839b")
+control_final = subset(control_final,
+                       control_final$Username != "5f0c10b787a3fe533f292145")
+control_final = subset(control_final,
+                       control_final$Username != "972730")
+control_final = subset(control_final,
+                       control_final$Username != "w10002554")
+control_final = subset(control_final,
+                       control_final$Username != "w10044868")
+
+length(unique(control_final$Username))
+
+##font-size
+#Large
+large = subset(size,
+               size$Procedure.Trial.Type == "JOL_Large")
+summary(large)
+
+size.large_final = na.omit(large)
+
+size.large_final = subset(size.large_final,
+                          size.large_final$Username != "5b1b75312767e20001e506ec")
+size.large_final = subset(size.large_final,
+                          size.large_final$Username != "5bba1b6b8f3bd70001e6be3a")
+size.large_final = subset(size.large_final,
+                          size.large_final$Username != "5caa2f919f9fb8000185329b")
+size.large_final = subset(size.large_final,
+                          size.large_final$Username != "5ec95a3fdafc5445f27e0b61")
+
+length(unique(size.large_final$Username))
+
+
+#small
+small = subset(size,
+               size$Procedure.Trial.Type == "JOL_Small")
+summary(small)
+
+
+size.small_final = na.omit(small)
+
+size.small_final = subset(size.small_final,
+                          size.small_final$Username != "5b1b75312767e20001e506ec")
+size.small_final = subset(size.small_final,
+                          size.small_final$Username != "5bba1b6b8f3bd70001e6be3a")
+size.small_final = subset(size.small_final,
+                          size.small_final$Username != "5caa2f919f9fb8000185329b")
+size.small_final = subset(size.small_final,
+                          size.small_final$Username != "5ec95a3fdafc5445f27e0b61")
+
+length(unique(size.small_final$Username))
+
+
+##highlight
+#Yes highlights
+yes = subset(highlight,
+             highlight$Procedure.Trial.Type == "JOL_H")
+
+highlight.yes_final = na.omit(yes)
+
+highlight.yes_final = subset(highlight.yes_final,
+                             highlight.yes_final$Username != "5e8f0692facc7d1c12b4c9a1")
+highlight.yes_final = subset(highlight.yes_final,
+                             highlight.yes_final$Username != "5ede34f5255765051d450b9f")
+highlight.yes_final = subset(highlight.yes_final,
+                             highlight.yes_final$Username != "5ef516fac843781447f13719")
+
+length(unique(highlight.yes_final$Username))
+
+#No highlights
+no = subset(highlight,
+            highlight$Procedure.Trial.Type == "JOL")
+
+highlight.no_final = na.omit(no)
+
+highlight.no_final = subset(highlight.no_final,
+                             highlight.no_final$Username != "5e8f0692facc7d1c12b4c9a1")
+highlight.no_final = subset(highlight.no_final,
+                             highlight.no_final$Username != "5ede34f5255765051d450b9f")
+highlight.no_final = subset(highlight.no_final,
+                             highlight.no_final$Username != "5ef516fac843781447f13719")
+
+length(unique(highlight.no_final$Username))
+
+###Now compute the gammas
+##control
+empty = data.frame()
+
+for (i in unique(control_final$Username)){
+  
+  temp = subset(control_final, control_final$Username == i)
+  
+  g = rcorr.cens(temp$JOL, temp$Recall, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_control = empty
+
+##font-size
+#large
+empty = data.frame()
+
+for (i in unique(size.large_final$Username)){
+  
+  temp = subset(size.large_final, size.large_final$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_large = empty
+
+#small
+empty = data.frame()
+
+for (i in unique(size.small_final$Username)){
+  
+  temp = subset(size.small_final, size.small_final$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_small = empty
+
+##highlight
+#yes highlights
+empty = data.frame()
+
+for (i in unique(highlight.yes_final$Username)){
+  
+  temp = subset(highlight.yes_final, highlight.yes_final$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight_yes = empty
+
+#no highlights
+empty = data.frame()
+
+for (i in unique(highlight.no_final$Username)){
+  
+  temp = subset(highlight.no_final, highlight.no_final$Username == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Recall_Score, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_highlight_no = empty
+
+##Now means and CIs for table!
+#control
+mean(Gammas_control$g, na.rm = T)
+(sd(Gammas_control$g, na.rm = ) /sqrt(length(unique(Gammas_control$i)))) * 1.96
+
+#Large
+mean(Gammas_large$g, na.rm = T)
+(sd(Gammas_large$g, na.rm = ) /sqrt(length(unique(Gammas_large$i)))) * 1.96
+
+#small
+mean(Gammas_small$g, na.rm = T)
+(sd(Gammas_small$g, na.rm = ) /sqrt(length(unique(Gammas_small$i)))) * 1.96
+
+#Yes
+mean(Gammas_highlight_yes$g, na.rm = T)
+(sd(Gammas_highlight_yes$g, na.rm = T) /sqrt(length(unique(Gammas_highlight_yes$i)))) * 1.96
+
+#no
+mean(Gammas_highlight_no$g, na.rm = T)
+(sd(Gammas_highlight_no$g, na.rm = ) /sqrt(length(unique(Gammas_highlight_no$i)))) * 1.96

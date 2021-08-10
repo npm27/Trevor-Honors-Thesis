@@ -159,3 +159,128 @@ SF.standard2 = cast(SF.standard, Sub.ID ~ task, mean, na.rm = T)
 #write.csv(control3, file = "control group.csv", row.names = F)
 #write.csv(SF.SF2, file = "Mixed SF.csv", row.names = F)
 #write.csv(SF.standard2, file = "Mixed Standard.csv", row.names = F)
+
+####GAMMAS####
+###set up the data
+##CONTROL
+control_final = na.omit(control2)
+
+control_final = subset(control_final,
+                       control_final$Sub.ID != "w215057")
+control_final = subset(control_final,
+                       control_final$Sub.ID != "w10089980")
+length(unique(control_final$Sub.ID))
+
+##SF
+#Yes
+yes = subset(SF,
+             SF$Procedure.Trial.Type == "JOL_SF")
+
+yes.final = na.omit(yes)
+
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "10067786")
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "5efe59519563aa3504e9966a")
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "w10089265")
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "W966659_MER")
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "5eaa97d07eda6e01ec108107")
+yes.final = subset(yes.final,
+                   yes.final$Sub.ID != "5aa9528235237b0001132675")
+
+length(unique(yes.final$Sub.ID))
+
+#No
+no = subset(SF,
+             SF$Procedure.Trial.Type == "JOL")
+
+no.final = na.omit(no)
+
+no.final = subset(no.final,
+                   no.final$Sub.ID != "10067786")
+no.final = subset(no.final,
+                   no.final$Sub.ID != "5efe59519563aa3504e9966a")
+no.final = subset(no.final,
+                   no.final$Sub.ID != "w10089265")
+no.final = subset(no.final,
+                   no.final$Sub.ID != "W966659_MER")
+no.final = subset(no.final,
+                   no.final$Sub.ID != "5eaa97d07eda6e01ec108107")
+no.final = subset(no.final,
+                   no.final$Sub.ID != "5aa9528235237b0001132675")
+
+length(unique(no.final$Sub.ID))
+
+##Compute the gammas
+#Control
+empty = data.frame()
+
+for (i in unique(control_final$Sub.ID)){
+  
+  temp = subset(control_final, control_final$Sub.ID == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Scored, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_control = empty
+
+##Yes
+empty = data.frame()
+
+for (i in unique(yes.final$Sub.ID)){
+  
+  temp = subset(yes.final, yes.final$Sub.ID == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Scored, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_yes = empty
+
+##No
+empty = data.frame()
+
+for (i in unique(no.final$Sub.ID)){
+  
+  temp = subset(no.final, no.final$Sub.ID == i)
+  
+  g = rcorr.cens(temp$Response.JOL, temp$Scored, outx = TRUE)[2]
+  
+  g = unname(g)
+  
+  temp2 = data.frame(i, g)
+  
+  empty = rbind(temp2, empty)
+  
+}
+
+Gammas_no = empty
+
+##Now get mean gammas and CIs
+#control
+mean(Gammas_control$g, na.rm = T)
+(sd(Gammas_control$g, na.rm = T) /sqrt(length(unique(Gammas_control$i)))) * 1.96
+
+#YES
+mean(Gammas_yes$g, na.rm = T)
+(sd(Gammas_yes$g, na.rm = T) /sqrt(length(unique(Gammas_yes$i)))) * 1.96
+
+#NO
+mean(Gammas_no$g, na.rm = T)
+(sd(Gammas_no$g, na.rm = T) /sqrt(length(unique(Gammas_no$i)))) * 1.96
