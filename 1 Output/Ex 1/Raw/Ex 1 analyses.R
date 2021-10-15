@@ -632,7 +632,7 @@ mean(c(highlight.no_GAMMAS$F, highlight.no_GAMMAS$B, highlight.no_GAMMAS$S, high
 t.test(na.omit(c(highlight.no_GAMMAS$F, highlight.no_GAMMAS$B, highlight.no_GAMMAS$S, highlight.no_GAMMAS$U)), na.omit(c(highlight.yes_GAMMAS$F, highlight.yes_GAMMAS$B, highlight.yes_GAMMAS$S, highlight.yes_GAMMAS$U)), paired = F, var.equal = T)
 
 ##Put everything together for sig testing
-#control
+##control
 Control_GAMMAS2 = melt(na.omit(Control_GAMMAS),
                        id.vars = "Sub")
 
@@ -641,8 +641,104 @@ colnames(Control_GAMMAS2)[2:3] = c("Direction", "gamma")
 ezANOVA(Control_GAMMAS2,
         within = Direction,
         wid = Sub,
-        dv = gamma)
+        dv = gamma) #sig
 
-#font-size
+##font-size
+#small
+size.small_GAMMAS2 = melt(na.omit(size.small_GAMMAS),
+                       id.vars = "Sub")
+
+colnames(size.small_GAMMAS2)[2:3] = c("Direction", "gamma")
+
+ezANOVA(size.small_GAMMAS2,
+        within = Direction,
+        wid = Sub,
+        dv = gamma) #NS
+
+#large
+size.large_GAMMAS2 = melt(na.omit(size.large_GAMMAS),
+                          id.vars = "Sub")
+
+colnames(size.large_GAMMAS2)[2:3] = c("Direction", "gamma")
+
+ezANOVA(size.large_GAMMAS2,
+        within = Direction,
+        wid = Sub,
+        dv = gamma) #NS
 
 ##highlight vs control
+#yes
+highlight.yes_GAMMAS2 = melt(na.omit(highlight.yes_GAMMAS),
+                          id.vars = "Sub")
+
+colnames(highlight.yes_GAMMAS2)[2:3] = c("Direction", "gamma")
+
+ezANOVA(highlight.yes_GAMMAS2,
+        within = Direction,
+        wid = Sub,
+        dv = gamma) #NS
+
+#no
+highlight.no_GAMMAS2 = melt(na.omit(highlight.no_GAMMAS),
+                             id.vars = "Sub")
+
+colnames(highlight.no_GAMMAS2)[2:3] = c("Direction", "gamma")
+
+ezANOVA(highlight.no_GAMMAS2,
+        within = Direction,
+        wid = Sub,
+        dv = gamma) #NS
+
+##okay, combine into the datasets
+Control_GAMMAS2$group = rep("control")
+
+size.small_GAMMAS2$group = rep("small")
+size.large_GAMMAS2$group = rep("large")
+
+highlight.yes_GAMMAS2$group = rep("yes")
+highlight.no_GAMMAS2$group = rep("no")
+
+ls = rbind(size.small_GAMMAS2, size.large_GAMMAS2)
+lc = rbind(size.large_GAMMAS2, Control_GAMMAS2)
+sc = rbind(size.small_GAMMAS2, Control_GAMMAS2)
+yn = rbind(highlight.yes_GAMMAS2, highlight.no_GAMMAS2)
+yc = rbind(highlight.yes_GAMMAS2, Control_GAMMAS2)
+nc = rbind(highlight.no_GAMMAS2, Control_GAMMAS2)
+
+##large vs small
+ezANOVA(ls,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
+ezANOVA(lc,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
+ezANOVA(sc,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
+ezANOVA(yn,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
+ezANOVA(yc,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
+ezANOVA(nc,
+        wid = Sub,
+        between = group,
+        within = Direction,
+        gamma,
+        type = 3) #ns
