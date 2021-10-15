@@ -13,7 +13,7 @@ dat['diff2'] = dat['diff'].div(2) #length from line to point
 
 ##set up the initial plot
 fig = plt.figure()
-fig.set_size_inches(8, 5) #Might need to tweak this
+fig.set_size_inches(7, 3) #Might need to tweak this
 
 fig.subplots_adjust(hspace = .30) #Controls space between sub plots
 
@@ -49,14 +49,14 @@ r3_conf = r3['diff2']
 ind = np.arange(len(j1_average))  # the x locations for the groups #May need to tweak this
 width = 0.35 #bar width  #And tweak this
 
-rects1 = ax1.bar(ind - width/2, j1_average, width, yerr = j1_conf, capsize = 3, color = 'w', edgecolor = 'k',
+rects1 = ax1.bar(ind - width/2, j1_average, width, yerr = j1_conf, capsize = 3, color = 'navy', edgecolor = 'k',
                 label ='JOL')
 
-rects2 = ax1.bar(ind + width/2, r1_average, width, yerr = r1_conf, capsize = 3, color = 'grey', edgecolor = 'k',
+rects2 = ax1.bar(ind + width/2, r1_average, width, yerr = r1_conf, capsize = 3, color = 'dodgerblue', edgecolor = 'k',
                 label = 'Recall')
 
 #Make the plot spiffy
-ax1.set_title('Experiment 3: Sans Forgetica vs Arial', fontsize = 18, fontweight = 'bold')
+ax1.set_title('Sans Forgetica vs Arial', fontsize = 18, fontweight = 'bold')
 ax1.set_ylabel('Mean % JOL/Recall', fontsize = 16)
 ax1.set_xlabel('Direction', fontsize = 16)
 ax1.xaxis.labelpad = 10

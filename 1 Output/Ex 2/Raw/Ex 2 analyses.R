@@ -384,3 +384,18 @@ mean(Gammas_highlight_yes$g, na.rm = T)
 #no
 mean(Gammas_highlight_no$g, na.rm = T)
 (sd(Gammas_highlight_no$g, na.rm = ) /sqrt(length(unique(Gammas_highlight_no$i)))) * 1.96
+
+####gamma analyses####
+Gammas_large$encoding = rep("large")
+Gammas_small$encoding = rep("small")
+
+Gammas_control$encoding = rep("control")
+
+Gammas_highlight_no$encoding = rep("no")
+Gammas_highlight_yes$encoding = rep("yes")
+
+##small large
+sl = rbind(Gammas_large, Gammas_small)
+lc = rbind(Gammas_large, Gammas_control)
+sc = rbind(Gammas_small, Gammas_control)
+yn = rbind(Gammas_highlight_no, Gammas_highlight_yes)

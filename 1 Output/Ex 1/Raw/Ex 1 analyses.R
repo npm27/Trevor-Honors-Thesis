@@ -706,36 +706,117 @@ yc = rbind(highlight.yes_GAMMAS2, Control_GAMMAS2)
 nc = rbind(highlight.no_GAMMAS2, Control_GAMMAS2)
 
 ##large vs small
-ezANOVA(ls,
+model1 = ezANOVA(ls,
+          wid = Sub,
+          between = group,
+          within = Direction,
+          dv = gamma,
+          type = 3,
+          detailed = T) #ns
+
+model1$ANOVA$MSE = model1$ANOVA$SSd/model1$ANOVA$DFd
+model1
+
+##large vs control
+model2 = ezANOVA(lc,
+          wid = Sub,
+          between = group,
+          within = Direction,
+          dv = gamma,
+          type = 3,
+          detailed = T) #interaction is at .045
+
+model2$ANOVA$MSE = model2$ANOVA$SSd/model2$ANOVA$DFd
+model2
+
+psychReport::aovEffectSize(model2, effectSize = "pes")
+
+##post-hoc
+temp1 = t.test(na.omit(Control_GAMMAS$S), na.omit(size.large_GAMMAS$S), paired = F, p.adjust.methods = "Bonferroni", var.equal = T)
+p1 = round(temp1$p.value, 3)
+t1 = temp1$statistic
+SEM1 = (temp1$conf.int[2] - temp1$conf.int[1]) / 3.92
+temp1
+
+##PBIC
+pbic1 = Control_GAMMAS[ , c(1, 5)]
+pbic2 = size.large_GAMMAS[ , c(1, 5)]
+
+pbic1$group = rep("control")
+pbic2$group = rep("large")
+
+pbic3 = rbind(pbic1, pbic2)
+pbic3 = na.omit(pbic3)
+
+ezANOVA(pbic3,
         wid = Sub,
         between = group,
-        within = Direction,
-        gamma,
-        type = 3) #ns
-ezANOVA(lc,
+        dv = U,
+        type = 3,
+        detailed = T) 
+
+#small vs control
+model3 = ezANOVA(sc,
+          wid = Sub,
+          between = group,
+          within = Direction,
+          gamma,
+          type = 3,
+          detailed = T)
+
+model3$ANOVA$MSE = model3$ANOVA$SSd/model3$ANOVA$DFd
+model3
+
+psychReport::aovEffectSize(model3, effectSize = "pes")
+
+cs_gammas = rbind(Control_GAMMAS, size.small_GAMMAS)
+cs_gammas = na.omit(cs_gammas)
+
+temp1 = t.test(na.omit(cs_gammas$S), na.omit(cs_gammas$B), paired = F, p.adjust.methods = "Bonferroni", var.equal = T)
+p1 = round(temp1$p.value, 3)
+t1 = temp1$statistic
+SEM1 = (temp1$conf.int[2] - temp1$conf.int[1]) / 3.92
+temp1
+
+pbic1 = cs_gammas[ , c(1, 3)]
+pbic2 = cs_gammas[ , c(1, 4)]
+
+colnames(pbic1)[2] = "direction"
+colnames(pbic2)[2] = "direction"
+
+pbic1$group = rep("B")
+pbic2$group = rep("S")
+
+pbic3 = rbind(pbic1, pbic2)
+pbic3 = na.omit(pbic3)
+
+ezANOVA(pbic3,
         wid = Sub,
         between = group,
-        within = Direction,
-        gamma,
-        type = 3) #ns
-ezANOVA(sc,
-        wid = Sub,
-        between = group,
-        within = Direction,
-        gamma,
-        type = 3) #ns
-ezANOVA(yn,
-        wid = Sub,
-        between = group,
-        within = Direction,
-        gamma,
-        type = 3) #ns
+        dv = direction,
+        type = 3,
+        detailed = T) 
+
+apply(na.omit(cs_gammas[2:5]), 2, mean)
+apply(na.omit(cs_gammas[2:5]), 2, sd)
+
+##YES NO HIGHLIGHTS
+model4 = ezANOVA(yn,
+          wid = Sub,
+          between = group,
+          within = Direction,
+          gamma,
+          type = 3,
+          detailed = T)
+model4
+
 ezANOVA(yc,
         wid = Sub,
         between = group,
         within = Direction,
         gamma,
         type = 3) #ns
+
 ezANOVA(nc,
         wid = Sub,
         between = group,

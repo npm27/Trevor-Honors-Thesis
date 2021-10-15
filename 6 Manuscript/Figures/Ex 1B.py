@@ -13,11 +13,11 @@ dat['diff2'] = dat['diff'].div(2) #length from line to point
 
 ##set up the initial plot
 fig = plt.figure()
-fig.set_size_inches(10,12) #Might need to tweak this
+fig.set_size_inches(14,10) #Might need to tweak this
 
 fig.subplots_adjust(hspace = .45) #Controls space between sub plots
 
-fig.suptitle('Experiment 1B: Highlights', fontsize=18, fontweight = 'bold')
+fig.suptitle('Highlights', fontsize=30, fontweight = 'bold')
 
 
 ##Make the subplots
@@ -64,10 +64,10 @@ ind = np.arange(len(j1_average))  # the x locations for the groups #May need to 
 width = 0.35 #bar width  #And tweak this
 
 ##start making the plots
-rects1 = ax1.bar(ind - width/2, j1_average, width, yerr = j1_conf, capsize = 3, color = 'w', edgecolor = 'k',
+rects1 = ax1.bar(ind - width/2, j1_average, width, yerr = j1_conf, capsize = 3, color = 'navy', edgecolor = 'k',
                 label ='JOL')
 
-rects2 = ax1.bar(ind + width/2, r1_average, width, yerr = r1_conf, capsize = 3, color = 'grey', edgecolor = 'k',
+rects2 = ax1.bar(ind + width/2, r1_average, width, yerr = r1_conf, capsize = 3, color = 'dodgerblue', edgecolor = 'k',
                 label = 'Recall')
 
 #Make the plot spiffy
@@ -82,10 +82,10 @@ ax1.set_ylim([0,100])
 
 ##Large Font
 ##start making the plots
-rects3 = ax2.bar(ind - width/2, j2_average, width, yerr = j2_conf, capsize = 3, color = 'w', edgecolor = 'k',
+rects3 = ax2.bar(ind - width/2, j2_average, width, yerr = j2_conf, capsize = 3, color = 'navy', edgecolor = 'k',
                 label ='JOL')
 
-rects4 = ax2.bar(ind + width/2, r2_average, width, yerr = r2_conf, capsize = 3, color = 'grey', edgecolor = 'k',
+rects4 = ax2.bar(ind + width/2, r2_average, width, yerr = r2_conf, capsize = 3, color = 'dodgerblue', edgecolor = 'k',
                 label = 'Recall')
 
 #Make the plot spiffy
@@ -100,10 +100,10 @@ ax2.set_ylim([0,100])
 
 ##Control
 ##start making the plots
-rects5 = ax3.bar(ind - width/2, j3_average, width, yerr = j3_conf, capsize = 3, color = 'w', edgecolor = 'k',
+rects5 = ax3.bar(ind - width/2, j3_average, width, yerr = j3_conf, capsize = 3, color = 'navy', edgecolor = 'k',
                 label ='JOL')
 
-rects6 = ax3.bar(ind + width/2, r3_average, width, yerr = r3_conf, capsize = 3, color = 'grey', edgecolor = 'k',
+rects6 = ax3.bar(ind + width/2, r3_average, width, yerr = r3_conf, capsize = 3, color = 'dodgerblue', edgecolor = 'k',
                 label = 'Recall')
 
 #Make the plot spiffy
@@ -117,4 +117,4 @@ ax3.legend(fontsize = 14)
 ax3.set_ylim([0,100])
 
 ##save figure
-fig.savefig('EX1B_chart.png', dip = 10000)
+fig.savefig('EX1B_chart_updated.png', dip = 10000)
