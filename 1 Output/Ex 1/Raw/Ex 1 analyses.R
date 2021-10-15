@@ -8,6 +8,8 @@ library(data.table)
 library(reshape)
 library(Hmisc)
 
+options(scipen = 999)
+
 ##Get sample size
 length(unique(size$Username))
 length(unique(highlight$Username))
@@ -604,3 +606,43 @@ apply(highlight.yes_GAMMAS[ , -1], 2, mean, na.rm = T)
 #No highlight
 apply(highlight.no_GAMMAS[ , -1], 2, mean, na.rm = T)
 (apply(highlight.no_GAMMAS[ , -1], 2, sd, na.rm = T) / sqrt(nrow(highlight.no_GAMMAS))) * 1.96
+
+####Overall gammas####
+#control
+mean(c(Control_GAMMAS$F, Control_GAMMAS$B, Control_GAMMAS$S, Control_GAMMAS$U), na.rm = T)
+(sd(c(Control_GAMMAS$F, Control_GAMMAS$B, Control_GAMMAS$S, Control_GAMMAS$U), na.rm = T) / sqrt(156)) * 1.96
+
+#large
+mean(c(size.large_GAMMAS$F, size.large_GAMMAS$B, size.large_GAMMAS$S, size.large_GAMMAS$U), na.rm = T)
+(sd(c(size.large_GAMMAS$F, size.large_GAMMAS$B, size.large_GAMMAS$S, size.large_GAMMAS$U), na.rm = T) / sqrt(156)) * 1.96
+
+#small
+mean(c(size.small_GAMMAS$F, size.small_GAMMAS$B, size.small_GAMMAS$S, size.small_GAMMAS$U), na.rm = T)
+(sd(c(size.small_GAMMAS$F, size.small_GAMMAS$B, size.small_GAMMAS$S, size.small_GAMMAS$U), na.rm = T) / sqrt(156)) * 1.96
+
+#yes highlight
+mean(c(highlight.yes_GAMMAS$F, highlight.yes_GAMMAS$B, highlight.yes_GAMMAS$S, highlight.yes_GAMMAS$U), na.rm = T)
+(sd(c(highlight.yes_GAMMAS$F, highlight.yes_GAMMAS$B, highlight.yes_GAMMAS$S, highlight.yes_GAMMAS$U), na.rm = T) / sqrt(156)) * 1.96
+
+#no highlight
+mean(c(highlight.no_GAMMAS$F, highlight.no_GAMMAS$B, highlight.no_GAMMAS$S, highlight.no_GAMMAS$U), na.rm = T)
+(sd(c(highlight.no_GAMMAS$F, highlight.no_GAMMAS$B, highlight.no_GAMMAS$S, highlight.no_GAMMAS$U), na.rm = T) / sqrt(156)) * 1.96
+
+##Significant?
+t.test(na.omit(c(highlight.no_GAMMAS$F, highlight.no_GAMMAS$B, highlight.no_GAMMAS$S, highlight.no_GAMMAS$U)), na.omit(c(highlight.yes_GAMMAS$F, highlight.yes_GAMMAS$B, highlight.yes_GAMMAS$S, highlight.yes_GAMMAS$U)), paired = F, var.equal = T)
+
+##Put everything together for sig testing
+#control
+Control_GAMMAS2 = melt(na.omit(Control_GAMMAS),
+                       id.vars = "Sub")
+
+colnames(Control_GAMMAS2)[2:3] = c("Direction", "gamma")
+
+ezANOVA(Control_GAMMAS2,
+        within = Direction,
+        wid = Sub,
+        dv = gamma)
+
+#font-size
+
+##highlight vs control
