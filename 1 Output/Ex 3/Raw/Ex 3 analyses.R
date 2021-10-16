@@ -284,3 +284,25 @@ mean(Gammas_yes$g, na.rm = T)
 #NO
 mean(Gammas_no$g, na.rm = T)
 (sd(Gammas_no$g, na.rm = T) /sqrt(length(unique(Gammas_no$i)))) * 1.96
+
+##Analyses
+Gammas_yes$encoding = rep("yes")
+Gammas_no$encoding = rep("no")
+
+Gammas_control$encoding = rep("control")
+
+temp1 = t.test(na.omit(Gammas_control$g), na.omit(Gammas_yes$g), paired = F, p.adjust.methods = "Bonferroni", var.equal = T)
+p1 = round(temp1$p.value, 3)
+t1 = temp1$statistic
+SEM1 = (temp1$conf.int[2] - temp1$conf.int[1]) / 3.92
+temp1
+
+pbic1 = rbind(Gammas_control, Gammas_yes)
+pbic1 = na.omit(pbic1)
+
+ezANOVA(pbic1,
+        wid = i,
+        between = encoding,
+        dv = g,
+        detailed = T,
+        type = 3)

@@ -394,8 +394,19 @@ Gammas_control$encoding = rep("control")
 Gammas_highlight_no$encoding = rep("no")
 Gammas_highlight_yes$encoding = rep("yes")
 
-##small large
-sl = rbind(Gammas_large, Gammas_small)
-lc = rbind(Gammas_large, Gammas_control)
-sc = rbind(Gammas_small, Gammas_control)
-yn = rbind(Gammas_highlight_no, Gammas_highlight_yes)
+##large small
+temp1 = t.test(na.omit(Gammas_highlight_no$g), na.omit(Gammas_control$g), paired = F, p.adjust.methods = "Bonferroni", var.equal = T)
+p1 = round(temp1$p.value, 3)
+t1 = temp1$statistic
+SEM1 = (temp1$conf.int[2] - temp1$conf.int[1]) / 3.92
+temp1
+
+pbic1 = rbind(Gammas_highlight_no, Gammas_control)
+pbic1 = na.omit(pbic1)
+
+ezANOVA(pbic1,
+        wid = i,
+        between = encoding,
+        dv = g,
+        detailed = T,
+        type = 3)
